@@ -11,6 +11,7 @@ export const registerValidationSchema = Yup.object({
     .trim()
     .max(65, 'Email must be max 65 characters.')
     .lowercase(),
+    
   password: Yup.string()
     .min(8, 'Password must be atleast 8 characters')
     .max(14, 'Password must be at max 14 characters')
@@ -30,4 +31,12 @@ export const registerValidationSchema = Yup.object({
       'Gender must be either male, female, or other'
     )
     .notRequired(),
+})
+
+
+export const loginValidationSchema = Yup.object({
+  username: Yup.string()
+    .trim()
+    .required('Username is required'),
+  password: Yup.string().required('Password is a required field'),
 })
